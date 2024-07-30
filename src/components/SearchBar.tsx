@@ -111,6 +111,11 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({
                             "w-fit h-fit border-0 rounded-sm shrink-0",
                             action.className
                           )}
+                          onClick={() => {
+                            action.onClick(item);
+                            handleBlur();
+                            setSearchQuery("");
+                          }}
                         >
                           <span className="sr-only">{action.label}</span>
                           {action.icon}
