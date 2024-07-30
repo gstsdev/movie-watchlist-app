@@ -24,36 +24,10 @@ const WatchListExplorer: FunctionComponent<WatchListExplorerProps> = ({}) => {
     type: "watched" | "unwatched",
     item: { id: string; label: string }
   ): void {
-    setMovies((movies) => {
-      let found = false;
-
-      movies = movies.map((movie) => {
-        if (movie.id === item.id) {
-          found = true;
-
-          return { ...movie, type };
-        }
-
-        return movie;
-      });
-
-      if (!found) {
-        movies = movies.concat({ ...item, type });
-      }
-
-      return movies;
-    });
-  }
-
-  function changeMovieTo(type: "watched" | "unwatched", movieId: string) {
     setMovies((movies) =>
-      movies.map((movie) => {
-        if (movie.id === movieId) {
-          return { ...movie, type };
-        }
-
-        return movie;
-      })
+      // this way the movie always show at the bottom when its first added in the list
+      // or moved from another list
+      movies.filter((movie) => movie.id !== item.id).concat({ ...item, type })
     );
   }
 
@@ -94,7 +68,7 @@ const WatchListExplorer: FunctionComponent<WatchListExplorerProps> = ({}) => {
             actions={[
               {
                 label: "Move to unwatched",
-                onClick: (item) => changeMovieTo("unwatched", item.id),
+                onClick: (item) => addMovie("unwatched", item),
               },
               {
                 label: "Delete",
@@ -110,7 +84,7 @@ const WatchListExplorer: FunctionComponent<WatchListExplorerProps> = ({}) => {
             actions={[
               {
                 label: "Move to watched",
-                onClick: (item) => changeMovieTo("watched", item.id),
+                onClick: (item) => addMovie("watched", item),
               },
               {
                 label: "Delete",
