@@ -25,6 +25,9 @@ const config = {
         mono: ["var(--font-geist-mono)", ...defaultTheme.fontFamily.mono],
         inter: ["var(--font-inter)"],
       },
+      fontSize: {
+        "4xl": ["2rem", { lineHeight: "2.5rem" }],
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

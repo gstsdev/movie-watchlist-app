@@ -63,7 +63,7 @@ const WatchListExplorer: FunctionComponent<WatchListExplorerProps> = ({}) => {
 
   return (
     <div className="p-3 rounded-3xl border border-[#e6e6e6] w-full">
-      <div className="relative h-12 mb-3">
+      <div className="relative h-11 mb-3">
         <AddMovieForm
           className="absolute h-max z-10"
           onAddWatchedMovie={(item) => addMovie("watched", item)}
