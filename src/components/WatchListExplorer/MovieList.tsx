@@ -7,14 +7,15 @@ import {
 } from "../ui/dropdown-menu";
 import MoreVertical from "../ui/icons/MoreVertical";
 import { Button } from "../ui/button";
+import { Movie } from "@/lib/types/movie";
 
 interface MovieListAction {
   label: string;
-  onClick(item: { id: string; label: string }): void;
+  onClick(item: Movie): void;
 }
 
 interface MovieListProps {
-  movies: { id: string; label: string }[];
+  movies: Movie[];
   emptyText: React.ReactNode;
   actions?: MovieListAction[];
 }
@@ -47,7 +48,7 @@ const MovieList: FunctionComponent<MovieListProps> = ({
 export default MovieList;
 
 interface MovieListItemProps {
-  movie: { id: string; label: string };
+  movie: Movie;
   actions?: MovieListAction[];
 }
 

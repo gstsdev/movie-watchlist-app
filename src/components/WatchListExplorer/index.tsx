@@ -6,13 +6,12 @@ import EyeRemove from "../ui/icons/EyeRemove";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import AddMovieForm from "./AddMovieForm";
 import MovieList from "./MovieList";
+import { Movie, MovieType, MovieWithType } from "@/lib/types/movie";
 
 interface WatchListExplorerProps {}
 
 const WatchListExplorer: FunctionComponent<WatchListExplorerProps> = ({}) => {
-  const [movies, setMovies] = useState<
-    { type: "watched" | "unwatched"; id: string; label: string }[]
-  >([]);
+  const [movies, setMovies] = useState<MovieWithType[]>([]);
   const watchedMovies = useMemo(() => {
     return movies.filter((movie) => movie.type === "watched");
   }, [movies]);
@@ -20,10 +19,7 @@ const WatchListExplorer: FunctionComponent<WatchListExplorerProps> = ({}) => {
     return movies.filter((movie) => movie.type === "unwatched");
   }, [movies]);
 
-  function addMovie(
-    type: "watched" | "unwatched",
-    item: { id: string; label: string }
-  ): void {
+  function addMovie(type: MovieType, item: Movie): void {
     setMovies((movies) =>
       // this way the movie always show at the bottom when its first added in the list
       // or moved from another list

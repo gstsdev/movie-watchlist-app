@@ -6,10 +6,11 @@ import SearchBar from "../SearchBar";
 import EyeCheck from "../ui/icons/EyeCheck";
 import EyeRemove from "../ui/icons/EyeRemove";
 import { useToast } from "../ui/use-toast";
+import { Movie } from "@/lib/types/movie";
 
 interface AddMovieFormProps {
-  onAddWatchedMovie(movie: { id: string; label: string }): void;
-  onAddUnwatchedMovie(movie: { id: string; label: string }): void;
+  onAddWatchedMovie(movie: Movie): void;
+  onAddUnwatchedMovie(movie: Movie): void;
   className?: string;
 }
 
