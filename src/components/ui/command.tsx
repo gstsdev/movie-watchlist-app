@@ -149,7 +149,7 @@ const CommandLoading = React.forwardRef<
   <CommandPrimitive.Loading
     ref={ref}
     className={cn(
-      "flex select-none items-center rounded-sm px-2 py-1.5 text-sm",
+      "flex select-none items-center rounded-sm py-6 text-sm",
       className
     )}
     {...props}
