@@ -1,3 +1,5 @@
+import WatchListExplorer from "@/components/WatchListExplorer";
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center px-6">
@@ -11,6 +13,8 @@ export default function Home() {
             {"Keep track of films you've seen and ones you want to watch."}
           </p>
         </div>
+
+        <WatchListExplorer />
       </div>
     </main>
   );
