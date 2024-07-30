@@ -92,9 +92,7 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({
               value={item.id}
               className="justify-between px-2.5 py-2 gap-3"
             >
-              <span className="whitespace-nowrap text-ellipsis overflow-hidden max-w-[15rem]">
-                {item.label}
-              </span>
+              <span>{item.label}</span>
               <div className="flex items-center gap-1.5">
                 {itemActions.map((action) => (
                   <Button

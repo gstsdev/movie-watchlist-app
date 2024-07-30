@@ -56,9 +56,11 @@ const MovieListItem: FunctionComponent<MovieListItemProps> = ({
   actions,
 }) => {
   return (
-    <div className="flex items-center justify-between py-2 px-1.5">
-      <div className="p-1">
-        <p className="text-sm text-neutral-700">{movie.label}</p>
+    <div className="flex items-center justify-between py-2 px-1.5 gap-3">
+      <div className="p-1 flex-1">
+        <p title={movie.label} className="text-sm text-neutral-700 w-full ">
+          {movie.label}
+        </p>
       </div>
       {actions && (
         <DropdownMenu>
