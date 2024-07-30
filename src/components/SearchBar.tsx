@@ -10,6 +10,7 @@ import {
 import { cn } from "@/lib/utils";
 import useThrottledValue from "@/hooks/useThrottledValue";
 import { Button } from "./ui/button";
+import { useOnClickOutside } from "usehooks-ts";
 
 interface SearchBarProps extends React.ComponentProps<typeof Command> {
   isLoading: boolean;
@@ -60,15 +61,13 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({
     onSearch?.(searchQuery);
   }, [searchQuery, onSearch]);
 
+  useOnClickOutside(container, handleBlur);
+
   return (
     <Command
       ref={container}
       {...props}
       shouldFilter={false}
-      onBlur={(ev) =>
-        (!ev.relatedTarget || !container.current?.contains(ev.relatedTarget)) &&
-        handleBlur()
-      }
       className={cn(
         "rounded-xl border",
         isActive && "shadow-md",
