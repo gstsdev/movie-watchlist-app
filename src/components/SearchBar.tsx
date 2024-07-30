@@ -80,7 +80,7 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({
         onValueChange={setSearchQuery}
         onFocus={handleFocus}
       />
-      <CommandList>
+      <CommandList className={cn(isActive && "p-1")}>
         {isLoading && (
           <CommandLoading className="justify-center">Loading...</CommandLoading>
         )}
@@ -90,7 +90,7 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({
             <CommandItem
               key={item.id}
               value={item.id}
-              className="justify-between"
+              className="justify-between px-2.5 py-2 gap-3"
             >
               <span className="whitespace-nowrap text-ellipsis overflow-hidden max-w-[15rem]">
                 {item.label}
