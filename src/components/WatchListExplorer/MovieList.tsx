@@ -33,7 +33,7 @@ const MovieList: FunctionComponent<MovieListProps> = ({
         {movies.map((movie) => (
           <li key={movie.id} className="group/movie-list-item">
             <div className="flex items-center justify-between py-2 px-2.5">
-              <p className="text-sm">{movie.label}</p>
+              <p className="text-sm text-neutral-700">{movie.label}</p>
               {actions && (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
@@ -46,7 +46,7 @@ const MovieList: FunctionComponent<MovieListProps> = ({
                       <MoreVertical className="w-2.5 h-2.5"></MoreVertical>
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="rounded-lg *:rounded border-[#e6e6e6] shadow-md">
+                  <DropdownMenuContent className="rounded-lg *:rounded border-[#e6e6e6] shadow-md font-inter font-medium">
                     {actions.map((action) => (
                       <DropdownMenuItem
                         key={action.label}

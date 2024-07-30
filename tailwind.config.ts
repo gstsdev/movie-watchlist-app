@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
+import defaultColors from "tailwindcss/colors";
 
 const config = {
   darkMode: ["class"],
@@ -22,6 +23,7 @@ const config = {
       fontFamily: {
         sans: ["var(--font-geist-sans)", ...defaultTheme.fontFamily.sans],
         mono: ["var(--font-geist-mono)", ...defaultTheme.fontFamily.mono],
+        inter: ["var(--font-inter)"],
       },
       keyframes: {
         "accordion-down": {
@@ -38,6 +40,10 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       colors: {
+        neutral: {
+          ...defaultColors.neutral,
+          700: "#414141",
+        },
         "watched-color": "rgba(79 155 144 / <alpha-value>)",
         "unwatched-color": {
           default: "rgba(208 54 76 / <alpha-value>)",
