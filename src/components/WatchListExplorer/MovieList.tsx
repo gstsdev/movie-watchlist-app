@@ -23,7 +23,7 @@ const MovieList: FunctionComponent<MovieListProps> = ({
   actions,
 }) => {
   return (
-    <div className="relative min-h-[328px]">
+    <div className="relative h-[328px] overflow-y-auto">
       {movies.length < 1 && (
         <div className="absolute inset-0 grid place-items-center">
           {emptyText}
