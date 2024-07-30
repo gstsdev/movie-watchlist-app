@@ -82,8 +82,9 @@ const WatchListExplorer: FunctionComponent<WatchListExplorerProps> = ({}) => {
                 <div className="flex items-center justify-between py-2 px-2.5">
                   <p className="text-sm">{movie.label}</p>
                   <Button
-                    variant="outline"
-                    className="w-fit h-fit p-2 border-0 hover:bg-[#f4f4f5]"
+                    variant="icon"
+                    size="icon"
+                    className="p-2 hover:bg-[#f4f4f5]"
                   >
                     <span className="sr-only">Open menu</span>
                     <MoreVertical className="w-2.5 h-2.5"></MoreVertical>
@@ -106,8 +107,9 @@ const WatchListExplorer: FunctionComponent<WatchListExplorerProps> = ({}) => {
                 <div className="flex items-center justify-between py-2 px-2.5">
                   <p className="text-sm">{movie.label}</p>
                   <Button
-                    variant="outline"
-                    className="w-fit h-fit p-2 border-0 hover:bg-[#f4f4f5]"
+                    variant="icon"
+                    size="icon"
+                    className="p-2 hover:bg-[#f4f4f5]"
                   >
                     <span className="sr-only">Open menu</span>
                     <MoreVertical className="w-2.5 h-2.5"></MoreVertical>
