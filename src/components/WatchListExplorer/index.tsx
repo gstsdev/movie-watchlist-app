@@ -45,6 +45,22 @@ const WatchListExplorer: FunctionComponent<WatchListExplorerProps> = ({}) => {
     });
   }
 
+  function changeMovieTo(type: "watched" | "unwatched", movieId: string) {
+    setMovies((movies) =>
+      movies.map((movie) => {
+        if (movie.id === movieId) {
+          return { ...movie, type };
+        }
+
+        return movie;
+      })
+    );
+  }
+
+  function removeMovieFromList(movieId: string) {
+    setMovies((movies) => movies.filter((movie) => movie.id !== movieId));
+  }
+
   return (
     <div className="p-3 rounded-3xl border border-[#e6e6e6] w-full">
       <AddMovieForm
@@ -74,8 +90,14 @@ const WatchListExplorer: FunctionComponent<WatchListExplorerProps> = ({}) => {
             emptyText="No watched movies to show"
             movies={watchedMovies}
             actions={[
-              { label: "Move to unwatched", onClick: () => {} },
-              { label: "Delete", onClick: () => {} },
+              {
+                label: "Move to unwatched",
+                onClick: (item) => changeMovieTo("unwatched", item.id),
+              },
+              {
+                label: "Delete",
+                onClick: (item) => removeMovieFromList(item.id),
+              },
             ]}
           />
         </TabsContent>
@@ -84,8 +106,14 @@ const WatchListExplorer: FunctionComponent<WatchListExplorerProps> = ({}) => {
             emptyText="No unwatched movies to show"
             movies={unwatchedMovies}
             actions={[
-              { label: "Move to watched", onClick: () => {} },
-              { label: "Delete", onClick: () => {} },
+              {
+                label: "Move to watched",
+                onClick: (item) => changeMovieTo("watched", item.id),
+              },
+              {
+                label: "Delete",
+                onClick: (item) => removeMovieFromList(item.id),
+              },
             ]}
           />
         </TabsContent>
