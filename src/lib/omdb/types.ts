@@ -12,7 +12,7 @@ export type OmdbSearchResult<$Type extends OmdbMovieType> =
   OmdbSearchMovieResult & { Type: $Type };
 
 export type OmdbSearchResponse<
-  MovieType extends OmdbMovieType = OmdbMovieType
+  MovieType extends OmdbMovieType = OmdbMovieType,
 > =
   | {
       Search: OmdbSearchResult<MovieType>[];
