@@ -10,12 +10,6 @@ import {
 import { cn } from "@/lib/utils";
 import useThrottledValue from "@/hooks/useThrottledValue";
 import { Button } from "./ui/button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "./ui/tooltip";
 
 interface SearchBarProps extends React.ComponentProps<typeof Command> {
   isLoading: boolean;
@@ -102,30 +96,22 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({
               <span>{item.label}</span>
               <div className="flex items-center gap-1.5">
                 {itemActions.map((action) => (
-                  <TooltipProvider key={action.label}>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Button
-                          variant="outline"
-                          className={cn(
-                            "w-fit h-fit border-0 rounded-sm shrink-0",
-                            action.className
-                          )}
-                          onClick={() => {
-                            action.onClick(item);
-                            handleBlur();
-                            setSearchQuery("");
-                          }}
-                        >
-                          <span className="sr-only">{action.label}</span>
-                          {action.icon}
-                        </Button>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>{action.label}</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
+                  <Button
+                    key={action.label}
+                    variant="outline"
+                    className={cn(
+                      "w-fit h-fit border-0 rounded-sm shrink-0",
+                      action.className
+                    )}
+                    onClick={() => {
+                      action.onClick(item);
+                      handleBlur();
+                      setSearchQuery("");
+                    }}
+                  >
+                    <span className="sr-only">{action.label}</span>
+                    {action.icon}
+                  </Button>
                 ))}
               </div>
             </CommandItem>
