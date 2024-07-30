@@ -29,6 +29,10 @@ const config = {
         "4xl": ["2rem", { lineHeight: "2.5rem" }],
         "5xl": ["2.625rem", { lineHeight: "3.25rem" }],
       },
+      spacing: {
+        ...defaultTheme.spacing,
+        4.5: "1.125rem",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
