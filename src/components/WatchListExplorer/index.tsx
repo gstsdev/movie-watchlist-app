@@ -1,12 +1,11 @@
 "use client";
 
 import { FunctionComponent, useMemo, useState } from "react";
-import { Button } from "../ui/button";
 import EyeCheck from "../ui/icons/EyeCheck";
 import EyeRemove from "../ui/icons/EyeRemove";
-import MoreVertical from "../ui/icons/MoreVertical";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import AddMovieForm from "./AddMovieForm";
+import MovieList from "./MovieList";
 
 interface WatchListExplorerProps {}
 
@@ -71,54 +70,24 @@ const WatchListExplorer: FunctionComponent<WatchListExplorerProps> = ({}) => {
           </TabsTrigger>
         </TabsList>
         <TabsContent value="watched">
-          {watchedMovies.length < 1 && (
-            <div className="min-h-[328px] w-full grid place-items-center">
-              No watched movies to show
-            </div>
-          )}
-          <ul>
-            {watchedMovies.map((movie) => (
-              <li key={movie.id} className="group/movie-list-item">
-                <div className="flex items-center justify-between py-2 px-2.5">
-                  <p className="text-sm">{movie.label}</p>
-                  <Button
-                    variant="icon"
-                    size="icon"
-                    className="p-2 hover:bg-[#f4f4f5]"
-                  >
-                    <span className="sr-only">Open menu</span>
-                    <MoreVertical className="w-2.5 h-2.5"></MoreVertical>
-                  </Button>
-                </div>
-                <hr className="my-1 group-last/movie-list-item:hidden" />
-              </li>
-            ))}
-          </ul>
+          <MovieList
+            emptyText="No watched movies to show"
+            movies={watchedMovies}
+            actions={[
+              { label: "Move to unwatched", onClick: () => {} },
+              { label: "Delete", onClick: () => {} },
+            ]}
+          />
         </TabsContent>
         <TabsContent value="unwatched">
-          {unwatchedMovies.length < 1 && (
-            <div className="min-h-[328px] w-full grid place-items-center">
-              No unwatched movies to show
-            </div>
-          )}
-          <ul>
-            {unwatchedMovies.map((movie) => (
-              <li key={movie.id} className="group/movie-list-item">
-                <div className="flex items-center justify-between py-2 px-2.5">
-                  <p className="text-sm">{movie.label}</p>
-                  <Button
-                    variant="icon"
-                    size="icon"
-                    className="p-2 hover:bg-[#f4f4f5]"
-                  >
-                    <span className="sr-only">Open menu</span>
-                    <MoreVertical className="w-2.5 h-2.5"></MoreVertical>
-                  </Button>
-                </div>
-                <hr className="my-1 group-last/movie-list-item:hidden" />
-              </li>
-            ))}
-          </ul>
+          <MovieList
+            emptyText="No unwatched movies to show"
+            movies={unwatchedMovies}
+            actions={[
+              { label: "Move to watched", onClick: () => {} },
+              { label: "Delete", onClick: () => {} },
+            ]}
+          />
         </TabsContent>
       </Tabs>
     </div>
