@@ -23,13 +23,13 @@ const MovieList: FunctionComponent<MovieListProps> = ({
   actions,
 }) => {
   return (
-    <>
+    <div className="relative min-h-[328px]">
       {movies.length < 1 && (
-        <div className="min-h-[328px] w-full grid place-items-center">
+        <div className="absolute inset-0 grid place-items-center">
           {emptyText}
         </div>
       )}
-      <ul>
+      <ul className="h-full">
         {movies.map((movie) => (
           <li key={movie.id} className="group/movie-list-item">
             <div className="flex items-center justify-between py-2 px-2.5">
@@ -64,7 +64,7 @@ const MovieList: FunctionComponent<MovieListProps> = ({
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 
