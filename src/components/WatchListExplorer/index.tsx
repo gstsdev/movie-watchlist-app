@@ -63,11 +63,13 @@ const WatchListExplorer: FunctionComponent<WatchListExplorerProps> = ({}) => {
 
   return (
     <div className="p-3 rounded-3xl border border-[#e6e6e6] w-full">
-      <AddMovieForm
-        className="mb-3"
-        onAddWatchedMovie={(item) => addMovie("watched", item)}
-        onAddUnwatchedMovie={(item) => addMovie("unwatched", item)}
-      />
+      <div className="relative h-12 mb-3">
+        <AddMovieForm
+          className="absolute h-max z-10"
+          onAddWatchedMovie={(item) => addMovie("watched", item)}
+          onAddUnwatchedMovie={(item) => addMovie("unwatched", item)}
+        />
+      </div>
       <Tabs defaultValue="watched" className="w-full">
         <TabsList className="grid grid-cols-2 w-full mb-3 rounded-xl *:rounded-lg *:uppercase *:font-mono bg-[#ebebeb]">
           <TabsTrigger
