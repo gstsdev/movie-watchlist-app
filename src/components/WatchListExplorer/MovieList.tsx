@@ -78,7 +78,7 @@ const MovieListItem: FunctionComponent<MovieListItemProps> = ({
             {actions.map((action) => (
               <DropdownMenuItem
                 key={action.label}
-                className="hover:bg-zinc-100"
+                className="hover:bg-zinc-100 cursor-pointer"
                 onClick={() => action.onClick(movie)}
               >
                 {action.label}
